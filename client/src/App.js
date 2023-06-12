@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import getWeb3 from './utils/web3';
 import getContractInstance from './utils/lottery';
 import web3 from 'web3';
+import { useEffect } from 'react';
 
 import './App.css';
 
@@ -16,6 +17,7 @@ class App extends Component {
 		contract: null,
 	};
 
+	
 	componentDidMount = async () => {
 		try {
 			// uzimanje web3 instance
@@ -67,6 +69,7 @@ class App extends Component {
 			this.setState({
 				message: 'Ulog uspešno uplaćen!',
 			});
+			window.location.reload();
 		} catch (error) {
 			this.setState({
 				message:
@@ -91,6 +94,7 @@ class App extends Component {
 			});
 
 			this.setState({ message: 'Pobednik je izvučen!' });
+			window.location.reload();
 		} catch (error) {
 			this.setState({
 				message: 'Permission denied',
